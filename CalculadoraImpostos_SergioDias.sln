@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias", "CalculadoraImpostos_SergioDias.csproj", "{E270587D-0409-462D-93E2-EB7202F205E1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Domain", "CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj", "{315BA280-47F1-43CB-A5E2-37ADD29D1E2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Services", "CalculadoraImpostos_SergioDias.Services\CalculadoraImpostos_SergioDias.Services.csproj", "{403341AF-05A2-4871-A2B7-FD086D592E70}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E270587D-0409-462D-93E2-EB7202F205E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E270587D-0409-462D-93E2-EB7202F205E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E270587D-0409-462D-93E2-EB7202F205E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E270587D-0409-462D-93E2-EB7202F205E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{315BA280-47F1-43CB-A5E2-37ADD29D1E2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{315BA280-47F1-43CB-A5E2-37ADD29D1E2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{315BA280-47F1-43CB-A5E2-37ADD29D1E2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
