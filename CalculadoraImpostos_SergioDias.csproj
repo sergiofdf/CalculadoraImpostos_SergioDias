@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj" />
+    <ProjectReference Include="CalculadoraImpostos_SergioDias.Presentation\CalculadoraImpostos_SergioDias.Presentation.csproj" />
+    <ProjectReference Include="CalculadoraImpostos_SergioDias.Services\CalculadoraImpostos_SergioDias.Services.csproj" />
+  </ItemGroup>
+
+</Project>
