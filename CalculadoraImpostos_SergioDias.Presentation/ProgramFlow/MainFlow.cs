@@ -42,7 +42,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
             decimal value = Convert.ToDecimal(ScreenPresenter.GetInput(Messages.valueInput, InputValidations.ValidatePositiveDecimal, Messages.valueInputError));
 
             decimal taxValue = _service.TaxCalculation(value);
-            Messages.ScreenTaxToPay(taxValue);
+            ScreenPresenter.DisplayMessage(Messages.ScreenTaxToPay(taxValue));
         }
         public void TaxRegistration() { }
         public void TaxConsultByCpf() { }

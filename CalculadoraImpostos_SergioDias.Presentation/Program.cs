@@ -10,7 +10,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation
 {
     public class Program
     {
-        public static void Main()
+        static void Main()
         {
             ServiceCollection services = new();
             ConfigureServices(services);

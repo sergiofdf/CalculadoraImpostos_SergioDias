@@ -49,5 +49,10 @@
 
             return response;
         }
+
+        public static void DisplayMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }

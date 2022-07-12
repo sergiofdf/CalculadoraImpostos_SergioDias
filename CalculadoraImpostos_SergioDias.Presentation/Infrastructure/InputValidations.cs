@@ -10,7 +10,8 @@
         {
             if (ValidateConsoleNotEmpty(input))
             {
-                return decimal.TryParse(input, out _);
+                decimal convertedValue;
+                return decimal.TryParse(input, out convertedValue) && convertedValue > 0;
             }
             return false;
         }
