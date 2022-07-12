@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj" />
+    <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Repositories\CalculadoraImpostos_SergioDias.Repositories.csproj" />
   </ItemGroup>
 
 </Project>

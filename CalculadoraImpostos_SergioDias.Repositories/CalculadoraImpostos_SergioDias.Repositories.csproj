@@ -8,16 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj" />
-    <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Services\CalculadoraImpostos_SergioDias.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Presentations\" />
   </ItemGroup>
 
 </Project>
