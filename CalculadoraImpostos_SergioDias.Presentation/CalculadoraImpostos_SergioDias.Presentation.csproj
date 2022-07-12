@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>CalculadoraImpostos_SergioDias.Presentation.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,11 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj" />
+    <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Repositories\CalculadoraImpostos_SergioDias.Repositories.csproj" />
     <ProjectReference Include="..\CalculadoraImpostos_SergioDias.Services\CalculadoraImpostos_SergioDias.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Presentations\" />
   </ItemGroup>
 
 </Project>
