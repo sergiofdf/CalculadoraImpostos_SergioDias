@@ -20,12 +20,18 @@ namespace CalculadoraImpostos_SergioDias.Repositories
         public void SavePerson(Person person)
         {
             People.Add(person);
+            _database.Save(People);
         }
 
         public Person GetPersonByCpf(string cpf)
         {
-            var personSearch = People.First(p => p.Cpf == cpf);
-            return personSearch;
+            var personExists = People.Where(p => p.Cpf == cpf).Any();
+            if (personExists)
+            {
+                var personSearch = People.First(p => p.Cpf == cpf);
+                return personSearch;
+            }
+            return default;
         }
 
         public List<Person> ListAllRegister()

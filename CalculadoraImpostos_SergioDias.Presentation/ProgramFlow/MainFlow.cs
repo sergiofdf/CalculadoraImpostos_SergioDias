@@ -1,4 +1,5 @@
-﻿using CalculadoraImpostos_SergioDias.Presentation.Infrastructure;
+﻿using CalculadoraImpostos_SergioDias.Domain;
+using CalculadoraImpostos_SergioDias.Presentation.Infrastructure;
 using CalculadoraImpostos_SergioDias.Presentation.Presentations;
 using CalculadoraImpostos_SergioDias.Services;
 
@@ -19,7 +20,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
         public void NavigateMenu()
         {
             var selectedMenu = ScreenPresenter.GetOption(
-                Menu.InitialMenu, 1, 4);
+                Menu.InitialMenu, 1, 5);
             switch (selectedMenu)
             {
                 case 1:
@@ -32,20 +33,57 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
                     TaxConsultByCpf();
                     break;
                 case 4:
+                    ShowAllRegister();
+                    break;
+                case 5:
                     Quit();
                     break;
             }
+            ScreenPresenter.DisplayMessage(Messages.pressKeyContinue);
+            Console.ReadKey();
+            BeginApp();
         }
 
-        public void TaxSimpleCalculation()
+        public double TaxSimpleCalculation()
         {
-            decimal value = Convert.ToDecimal(ScreenPresenter.GetInput(Messages.valueInput, InputValidations.ValidatePositiveDecimal, Messages.valueInputError));
+            double value = Convert.ToDouble(ScreenPresenter.GetInput(Messages.valueInput, InputValidations.ValidatePositiveNumber, Messages.valueInputError));
 
-            decimal taxValue = _service.TaxCalculation(value);
+            double taxValue = _service.TaxCalculation(value);
             ScreenPresenter.DisplayMessage(Messages.ScreenTaxToPay(taxValue));
+            return taxValue;
         }
-        public void TaxRegistration() { }
-        public void TaxConsultByCpf() { }
-        public void Quit() { }
+        public void TaxRegistration()
+        {
+            Person person = new();
+            person.Name = ScreenPresenter.GetInput(Messages.nameInput, InputValidations.ValidateConsoleNotEmpty, Messages.nameInputError);
+            person.Cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError);
+            person.TotalValue = Convert.ToDouble(ScreenPresenter.GetInput(Messages.valueInput, InputValidations.ValidatePositiveNumber, Messages.valueInputError));
+            person.Tax = _service.TaxCalculation(person.TotalValue);
+
+            if (_service.SearchTaxInfo(person.Cpf) != null)
+            {
+                ScreenPresenter.DisplayMessage(Messages.personAlreadyExists);
+                return;
+            }
+            _service.RegisterTaxValue(person);
+        }
+        public void TaxConsultByCpf()
+        {
+            string cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError);
+            var personSearchedByCpf = _service.SearchTaxInfo(cpf);
+            if (personSearchedByCpf != null)
+            {
+                ScreenPresenter.DisplayPerson(personSearchedByCpf);
+            }
+        }
+        public void ShowAllRegister()
+        {
+            List<Person> lista = _service.ListTaxInfo();
+            ScreenPresenter.DisplayPersonList(lista);
+        }
+        public void Quit()
+        {
+            Environment.Exit(0);
+        }
     }
 }

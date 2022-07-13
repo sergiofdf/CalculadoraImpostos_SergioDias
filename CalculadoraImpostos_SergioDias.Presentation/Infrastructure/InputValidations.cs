@@ -1,4 +1,6 @@
-﻿namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
+﻿using System.Text.RegularExpressions;
+
+namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
 {
     public static class InputValidations
     {
@@ -6,19 +8,23 @@
         {
             return !string.IsNullOrEmpty(input);
         }
-        public static bool ValidatePositiveDecimal(string input)
+        public static bool ValidatePositiveNumber(string input)
         {
             if (ValidateConsoleNotEmpty(input))
             {
-                decimal convertedValue;
-                return decimal.TryParse(input, out convertedValue) && convertedValue > 0;
+                if (input.Contains('.'))
+                {
+                    return false;
+                }
+                double convertedValue;
+                return double.TryParse(input, out convertedValue) && convertedValue > 0;
             }
             return false;
         }
-        //public static bool ValidateCpf(string cpf)
-        //{
-        //    Regex RgxCpf = new(@"^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$");
-        //    return RgxCpf.Match(cpf).Success;
-        //}
+        public static bool ValidateCpf(string cpf)
+        {
+            Regex RgxCpf = new(@"^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$");
+            return RgxCpf.Match(cpf).Success;
+        }
     }
 }

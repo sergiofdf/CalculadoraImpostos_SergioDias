@@ -11,34 +11,34 @@ namespace CalculadoraImpostos_SergioDias.Services
             _repository = repository;
         }
 
-        public decimal TaxCalculation(decimal totalRevenue)
+        public double TaxCalculation(double totalRevenue)
         {
-            decimal aliquot = 0;
-            decimal deduction = 0;
-            if (totalRevenue <= 22847.76m)
+            double aliquot = 0;
+            double deduction = 0;
+            if (totalRevenue <= 22847.76)
             {
-                aliquot = decimal.Zero;
-                deduction = decimal.Zero;
+                aliquot = 0;
+                deduction = 0;
             }
-            else if (totalRevenue > 22847.76m && totalRevenue <= 33919.80m)
+            else if (totalRevenue > 22847.76 && totalRevenue <= 33919.80)
             {
-                aliquot = 0.075m;
-                deduction = 1713.58m;
+                aliquot = 0.075;
+                deduction = 1713.58;
             }
-            else if (totalRevenue > 33919.80m && totalRevenue <= 45012.60m)
+            else if (totalRevenue > 33919.8 && totalRevenue <= 45012.6)
             {
-                aliquot = 0.150m;
-                deduction = 4257.57m;
+                aliquot = 0.15;
+                deduction = 4257.57;
             }
-            else if (totalRevenue > 45012.60m && totalRevenue <= 55976.16m)
+            else if (totalRevenue > 45012.60 && totalRevenue <= 55976.16)
             {
-                aliquot = 0.225m;
-                deduction = 7633.51m;
+                aliquot = 0.225;
+                deduction = 7633.51;
             }
-            else if (totalRevenue > 55976.16m)
+            else if (totalRevenue > 55976.16)
             {
-                aliquot = 0.275m;
-                deduction = 10432.32m;
+                aliquot = 0.275;
+                deduction = 10432.32;
             }
 
             return totalRevenue * aliquot - deduction;
@@ -54,7 +54,6 @@ namespace CalculadoraImpostos_SergioDias.Services
             var personSearch = SearchTaxInfo(person.Cpf);
             if (personSearch != null)
                 return false;
-            person.Tax = TaxCalculation(person.TotalValue);
             _repository.SavePerson(person);
             return true;
         }

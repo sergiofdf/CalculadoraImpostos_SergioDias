@@ -1,4 +1,7 @@
-﻿namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
+﻿using CalculadoraImpostos_SergioDias.Domain;
+using ConsoleTables;
+
+namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
 {
     public static class ScreenPresenter
     {
@@ -11,14 +14,14 @@
             {
                 Console.WriteLine();
                 var defaultBackgroundColor = Console.BackgroundColor;
-                var defaultForegroundColor = Console.BackgroundColor;
+                var defaultForegroundColor = Console.ForegroundColor;
                 Console.BackgroundColor = ConsoleColor.DarkYellow;
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.WriteLine(errorMessage);
                 Console.BackgroundColor = defaultBackgroundColor;
                 Console.ForegroundColor = defaultForegroundColor;
             }
-            return Console.ReadLine().Trim();
+            return Console.ReadLine().Trim().Replace(".", "").Replace("-", "");
         }
         public static int GetOption(
             string screen,
@@ -53,6 +56,23 @@
         public static void DisplayMessage(string message)
         {
             Console.WriteLine(message);
+        }
+        public static void DisplayPerson(Person person)
+        {
+            var table = new ConsoleTable("CPF", "Nome", "Total Recebido", "Imposto a Pagar");
+            table.AddRow(person.Cpf, person.Name, $"R$ { string.Format("{0:0.00}", person.TotalValue)}", $"R$ { string.Format("{0:0.00}", person.Tax)}");
+            table.Write();
+            Console.WriteLine();
+        }
+        public static void DisplayPersonList(List<Person> people)
+        {
+            var table = new ConsoleTable("CPF", "Nome", "Total Recebido", "Imposto a Pagar");
+            foreach (var person in people)
+            {
+                table.AddRow(person.Cpf, person.Name, $"R$ { string.Format("{0:0.00}", person.TotalValue)}", $"R$ { string.Format("{0:0.00}", person.Tax)}");
+            }
+            table.Write();
+            Console.WriteLine();
         }
     }
 }

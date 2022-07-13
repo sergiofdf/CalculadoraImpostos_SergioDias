@@ -4,7 +4,7 @@
     {
         public string Cpf { get; set; }
         public string Name { get; set; }
-        public decimal TotalValue { get; set; }
-        public decimal Tax { get; set; }
+        public double TotalValue { get; set; }
+        public double Tax { get; set; }
     }
 }
