@@ -56,9 +56,10 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
         {
             Person person = new();
             person.Name = ScreenPresenter.GetInput(Messages.nameInput, InputValidations.ValidateConsoleNotEmpty, Messages.nameInputError);
-            person.Cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError);
+            person.Cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError).Replace(".", "").Replace("-", "");
             person.TotalValue = Convert.ToDouble(ScreenPresenter.GetInput(Messages.valueInput, InputValidations.ValidatePositiveNumber, Messages.valueInputError));
             person.Tax = _service.TaxCalculation(person.TotalValue);
+            ScreenPresenter.DisplayMessage(Messages.ScreenTaxToPay(person.Tax));
 
             if (_service.SearchTaxInfo(person.Cpf) != null)
             {
@@ -69,7 +70,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
         }
         public void TaxConsultByCpf()
         {
-            string cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError);
+            string cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError).Replace(".", "").Replace("-", "");
             var personSearchedByCpf = _service.SearchTaxInfo(cpf);
             if (personSearchedByCpf != null)
             {

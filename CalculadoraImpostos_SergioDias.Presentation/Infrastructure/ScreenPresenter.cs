@@ -21,7 +21,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
                 Console.BackgroundColor = defaultBackgroundColor;
                 Console.ForegroundColor = defaultForegroundColor;
             }
-            return Console.ReadLine().Trim().Replace(".", "").Replace("-", "");
+            return Console.ReadLine().Trim();
         }
         public static int GetOption(
             string screen,
@@ -52,26 +52,27 @@ namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
 
             return response;
         }
-
         public static void DisplayMessage(string message)
         {
             Console.WriteLine(message);
         }
         public static void DisplayPerson(Person person)
         {
+            Console.Clear();
             var table = new ConsoleTable("CPF", "Nome", "Total Recebido", "Imposto a Pagar");
             table.AddRow(person.Cpf, person.Name, $"R$ { string.Format("{0:0.00}", person.TotalValue)}", $"R$ { string.Format("{0:0.00}", person.Tax)}");
-            table.Write();
+            table.Write(Format.Alternative);
             Console.WriteLine();
         }
         public static void DisplayPersonList(List<Person> people)
         {
+            Console.Clear();
             var table = new ConsoleTable("CPF", "Nome", "Total Recebido", "Imposto a Pagar");
             foreach (var person in people)
             {
                 table.AddRow(person.Cpf, person.Name, $"R$ { string.Format("{0:0.00}", person.TotalValue)}", $"R$ { string.Format("{0:0.00}", person.Tax)}");
             }
-            table.Write();
+            table.Write(Format.Alternative);
             Console.WriteLine();
         }
     }
