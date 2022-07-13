@@ -17,7 +17,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.Infrastructure
                     return false;
                 }
                 double convertedValue;
-                return double.TryParse(input, out convertedValue) && convertedValue > 0;
+                return double.TryParse(input, out convertedValue) && convertedValue >= 0;
             }
             return false;
         }
