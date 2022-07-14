@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Domain", "CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj", "{315BA280-47F1-43CB-A5E2-37ADD29D1E2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraImpostos_SergioDias.Domain", "CalculadoraImpostos_SergioDias.Domain\CalculadoraImpostos_SergioDias.Domain.csproj", "{315BA280-47F1-43CB-A5E2-37ADD29D1E2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Services", "CalculadoraImpostos_SergioDias.Services\CalculadoraImpostos_SergioDias.Services.csproj", "{403341AF-05A2-4871-A2B7-FD086D592E70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraImpostos_SergioDias.Services", "CalculadoraImpostos_SergioDias.Services\CalculadoraImpostos_SergioDias.Services.csproj", "{403341AF-05A2-4871-A2B7-FD086D592E70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Presentation", "CalculadoraImpostos_SergioDias.Presentation\CalculadoraImpostos_SergioDias.Presentation.csproj", "{5E29F946-2A3D-47A3-91CD-378296811D79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraImpostos_SergioDias.Presentation", "CalculadoraImpostos_SergioDias.Presentation\CalculadoraImpostos_SergioDias.Presentation.csproj", "{5E29F946-2A3D-47A3-91CD-378296811D79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Repositories", "CalculadoraImpostos_SergioDias.Repositories\CalculadoraImpostos_SergioDias.Repositories.csproj", "{7902BB54-708D-463D-A712-484464054F07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculadoraImpostos_SergioDias.Repositories", "CalculadoraImpostos_SergioDias.Repositories\CalculadoraImpostos_SergioDias.Repositories.csproj", "{7902BB54-708D-463D-A712-484464054F07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculadoraImpostos_SergioDias.Services.Tests", "CalculadoraImpostos_SergioDias.Services.Tests\CalculadoraImpostos_SergioDias.Services.Tests.csproj", "{C6AF12BD-6091-4FEC-B644-17219E630C90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7902BB54-708D-463D-A712-484464054F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7902BB54-708D-463D-A712-484464054F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7902BB54-708D-463D-A712-484464054F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6AF12BD-6091-4FEC-B644-17219E630C90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AF12BD-6091-4FEC-B644-17219E630C90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AF12BD-6091-4FEC-B644-17219E630C90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AF12BD-6091-4FEC-B644-17219E630C90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

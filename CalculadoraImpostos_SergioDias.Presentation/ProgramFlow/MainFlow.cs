@@ -61,7 +61,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
             person.Tax = _service.TaxCalculation(person.TotalValue);
             ScreenPresenter.DisplayMessage(Messages.ScreenTaxToPay(person.Tax));
 
-            if (_service.SearchTaxInfo(person.Cpf) != null)
+            if (!_service.RegisterTaxValue(person))
             {
                 ScreenPresenter.DisplayMessage(Messages.personAlreadyExists);
                 return;
