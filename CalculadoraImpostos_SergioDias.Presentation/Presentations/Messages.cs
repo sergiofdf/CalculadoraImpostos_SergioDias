@@ -10,6 +10,8 @@
         public const string valueInputError = "Valor inválido. Digite um valor positivo e utilize vírgula como separador decimal.";
         public const string personAlreadyExists = "\nEssa pessoa já está cadastrada.";
         public const string pressKeyContinue = "\nPressione qualquer tecla para continuar...";
+        public const string personNotFound = "\nPessoa não cadastrada.";
+        public const string personListEmpty = "\nAinda não existem pessoas cadastradas.";
         public static string ScreenTaxToPay(double value)
         {
             return $"\nO valor total a pagar será de R$ {string.Format("{0:0.00}", value)}";

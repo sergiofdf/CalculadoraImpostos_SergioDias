@@ -76,11 +76,16 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
             {
                 ScreenPresenter.DisplayPerson(personSearchedByCpf);
             }
+            ScreenPresenter.DisplayMessage(Messages.personNotFound);
         }
         public void ShowAllRegister()
         {
             List<Person> lista = _service.ListTaxInfo();
-            ScreenPresenter.DisplayPersonList(lista);
+            if (lista.Any())
+            {
+                ScreenPresenter.DisplayPersonList(lista);
+            }
+            ScreenPresenter.DisplayMessage(Messages.personListEmpty);
         }
         public void Quit()
         {
