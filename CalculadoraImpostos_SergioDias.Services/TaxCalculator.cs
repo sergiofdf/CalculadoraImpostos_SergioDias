@@ -13,33 +13,10 @@ namespace CalculadoraImpostos_SergioDias.Services
 
         public double TaxCalculation(double totalRevenue)
         {
-            double aliquot = 0;
-            double deduction = 0;
-            if (totalRevenue <= 22847.76)
-            {
-                aliquot = 0;
-                deduction = 0;
-            }
-            else if (totalRevenue > 22847.76 && totalRevenue <= 33919.80)
-            {
-                aliquot = 0.075;
-                deduction = 1713.58;
-            }
-            else if (totalRevenue > 33919.8 && totalRevenue <= 45012.6)
-            {
-                aliquot = 0.15;
-                deduction = 4257.57;
-            }
-            else if (totalRevenue > 45012.60 && totalRevenue <= 55976.16)
-            {
-                aliquot = 0.225;
-                deduction = 7633.51;
-            }
-            else if (totalRevenue > 55976.16)
-            {
-                aliquot = 0.275;
-                deduction = 10432.32;
-            }
+            TaxTiersTable taxTiersTable = new TaxTiersTable();
+            taxTiersTable.SetParametersForTier(totalRevenue);
+            double aliquot = taxTiersTable.Aliquot;
+            double deduction = taxTiersTable.Deduction;
 
             return totalRevenue * aliquot - deduction;
         }
