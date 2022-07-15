@@ -67,14 +67,16 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
                 return;
             }
             _service.RegisterTaxValue(person);
+            ScreenPresenter.DisplayMessage(Messages.registerSuccess);
         }
         public void TaxConsultByCpf()
         {
-            string cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateConsoleNotEmpty, Messages.cpfInputError).Replace(".", "").Replace("-", "");
+            string cpf = ScreenPresenter.GetInput(Messages.cpfInput, InputValidations.ValidateCpf, Messages.cpfInputError).Replace(".", "").Replace("-", "");
             var personSearchedByCpf = _service.SearchTaxInfo(cpf);
             if (personSearchedByCpf != null)
             {
                 ScreenPresenter.DisplayPerson(personSearchedByCpf);
+                return;
             }
             ScreenPresenter.DisplayMessage(Messages.personNotFound);
         }
@@ -84,6 +86,7 @@ namespace CalculadoraImpostos_SergioDias.Presentation.ProgramFlow
             if (lista.Any())
             {
                 ScreenPresenter.DisplayPersonList(lista);
+                return;
             }
             ScreenPresenter.DisplayMessage(Messages.personListEmpty);
         }

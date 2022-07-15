@@ -17,7 +17,6 @@ namespace CalculadoraImpostos_SergioDias.Services
             taxTiersTable.SetParametersForTier(totalRevenue);
             double aliquot = taxTiersTable.Aliquot;
             double deduction = taxTiersTable.Deduction;
-
             return totalRevenue * aliquot - deduction;
         }
 
